@@ -9,7 +9,7 @@ import com.FutebolSpring.FutebolSpring.models.Jogador;
 
 @Repository
 public interface JogadorRepository extends CrudRepository<Jogador, String>{
-	Jogador findbyId(long id);
+	Jogador findById(long id);
 	List<Jogador> findByNome(String nome);
 	
 }

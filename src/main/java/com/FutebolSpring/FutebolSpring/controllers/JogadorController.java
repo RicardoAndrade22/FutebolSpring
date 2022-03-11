@@ -20,12 +20,12 @@ public class JogadorController {
 	private JogadorRepository jr;
 	
 	//CADASTRAR JOGADOOR	
-	@RequestMapping(value = "/cadastrarJogador", method = RequestMethod.GET)
+	@RequestMapping(value = "cadastrarJogador", method = RequestMethod.GET)
 	public String form() {
 		return "jogador/cadastro";
 	}
 	
-	@RequestMapping(value = "/cadastrarJogador", method = RequestMethod.POST)
+	@RequestMapping(value = "cadastrarJogador", method = RequestMethod.POST)
 	public String form(@Valid Jogador jogador, BindingResult result, RedirectAttributes attributes) {
 		
 		if (result.hasErrors()) {
@@ -39,7 +39,7 @@ public class JogadorController {
 	
 	//LISTAR JOGADOR
 	@RequestMapping("/jogadores")
-	public  ModelAndView listajogadores() {
+	public  ModelAndView listaJogadores() {
 		ModelAndView mv = new ModelAndView("jogador/listaJogadores");
 		//ITERABLE VAI RETORNAR ELEMENTOS DA CLASSE JOGADOR PARA SEREM USADOS EM LOOP
 		Iterable<Jogador> jogadores = jr.findAll();
@@ -50,7 +50,7 @@ public class JogadorController {
 	//Deleta jogador
 	@RequestMapping("/deletaJogador")
 	public String deletarJogador(long id) {
-		Jogador jogador = jr.findbyId(id);
+		Jogador jogador = jr.findById(id);
 		jr.delete(jogador);
 		return "redirect:/jogadores";
 	}
@@ -59,7 +59,7 @@ public class JogadorController {
 	// formulário edição de jogador
 	@RequestMapping(value = "/atualizaJogador", method = RequestMethod.GET)
 	public ModelAndView editarJogador(long id) {
-		Jogador jogador = jr.findbyId(id);
+		Jogador jogador = jr.findById(id);
 		ModelAndView mv = new ModelAndView("jogador/update_jogador");
 		mv.addObject("jogadores", jogador);
 		return mv;
@@ -67,7 +67,7 @@ public class JogadorController {
 	
 	//Update-vaga
 	
-	@RequestMapping(value = "/editar-vaga", method = RequestMethod.POST)
+	@RequestMapping(value = "/atualizaJogador", method = RequestMethod.POST)
 	public String updateJogador(@Valid Jogador jogador, BindingResult result, RedirectAttributes attributes) {
 		jr.save(jogador);
 		attributes.addFlashAttribute("success", "Jogador alterada com sucesso!");

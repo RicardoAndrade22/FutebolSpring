@@ -30,7 +30,7 @@ public class Jogador {
 	}
 
 	public void setNome(String nome) {
-		nome = nome;
+		this.nome = nome;
 	}
 
 	public long getGols() {
