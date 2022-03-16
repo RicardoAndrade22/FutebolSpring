@@ -15,7 +15,7 @@
 
 <body>
 
-    <h1>Futebol SPRING</h1>
+    <a href="/"> <h1>Futebol SPRING</h1> </a>
     <table class="table table-dark table-hover">
         <thead>
           <tr>
@@ -32,7 +32,7 @@
             <td><span class="text-center" th:text="${jogador.gols}"></span></td>
             <td><span class="text-center" th:text="${jogador.assistencias}"></span></td>
             <td> 
-            	<a  ><button type="button" class="btn btn-primary" >Editar</button></a>
+            	<a href="/atualizaJogador" ><button type="button" class="btn btn-primary" >Editar</button></a>
            		<a th:href= "${(#mvc.url('JC#deletaJogador').arg(0, jogador.id)).build()}"><button type="button" class="btn btn-danger" >Excluir</button></a>
             </td>
             

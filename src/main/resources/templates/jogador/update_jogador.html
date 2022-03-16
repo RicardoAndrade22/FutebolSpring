@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html lang=”pt-br” xmlns:th="http://thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
-
+<html lang=”pt-br” xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,42 +8,37 @@
     <link rel="stylesheet" href="estilo.css" type="text/css">
     <title>FUTEBOL SPRING</title>
 </head>
-
 <body>
 
-    <h1>Futebol SPRING</h1>
-    <fieldset id="cadastro"> 
+    <a href="/"> <h1>Futebol SPRING</h1> </a>
+    <fieldset id="atualizajogador"> 
         |ATUALIZA JOGADORES|
         <form id="form" method="post" >
-           
-            <div class="form-group">
+        	<div class="form-group">
                 <label for="exampleInputEmail1">  NOME:</label>
-                <input type="text" class="form-control"   placeholder="..."  name="nome" th:attr="value = ${jogador.nome}" required>
-           
+                <input type="text" class="form-control"   placeholder="..."  name="nome" 
+                th:attr="value = ${jogador.nome}" required>
             </div>
+            
             <div class="form-group">
                 <label for="exampleInputEmail1">GOLS:</label>
-                <input type="text" class="form-control"  size="2" maxlength="4" pattern="[0-9]+" placeholder="..." name= "gols" th:attr="value = ${jogador.gols}"required>
-            
+                <input type="text" class="form-control"  size="2" maxlength="4" pattern="[0-9]+" placeholder="..." name= "gols" 
+               		th:attr="value = ${jogador.gols}"required>
             </div>
+            
             <div class="form-group">
                 <label for="exampleInputEmail1">ASSISTENCIAS:</label>
-                <input type="text" class="form-control"  size="2" maxlength="4" pattern="[0-9]+" placeholder="..." name= "assistencias" th:attr="value = ${jogador.assistencias}" required>
+                <input type="text" class="form-control"  size="2" maxlength="4" pattern="[0-9]+" placeholder="..." name= "assistencias" 
+                	th:attr="value = ${jogador.assistencias}" required>
             
             </div>
             <button type="submit" class="btn btn-success">SALVAR</button>
         </form>
     </fieldset>
-
-   
-    
     <footer>
         Ricardo Andrade - Dev. WEB FULL STACK ||	
         <small>&copy;copyright 2022</small> 
     </footer>
-
-      
-
      <!--JavaScript bootstrap-->
 		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 		<script
