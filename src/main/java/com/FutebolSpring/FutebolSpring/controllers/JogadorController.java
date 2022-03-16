@@ -19,22 +19,22 @@ public class JogadorController {
 	@Autowired
 	private JogadorRepository jr;
 	
-	//CADASTRAR JOGADOOR	
-	@RequestMapping(value = "cadastrarJogador", method = RequestMethod.GET)
+	//CADASTRAR JOGADOR	
+	@RequestMapping(value = "/cadastrojogador", method = RequestMethod.GET)
 	public String form() {
 		return "jogador/cadastro";
 	}
 	
-	@RequestMapping(value = "cadastrarJogador", method = RequestMethod.POST)
+	@RequestMapping(value = "/cadastrojogador", method = RequestMethod.POST)
 	public String form(@Valid Jogador jogador, BindingResult result, RedirectAttributes attributes) {
 		
 		if (result.hasErrors()) {
 			attributes.addFlashAttribute("mensagem", "Verifique os campos...");
-			return "redirect:/cadastro";
+			return "redirect:/cadastrojogador";
 		}
 		jr.save(jogador);
 		attributes.addFlashAttribute("mensagem", "jogador cadastrado");
-		return "redirect:/cadastro";
+		return "redirect:/cadastrojogador";
 	}
 	
 	//LISTAR JOGADOR
@@ -49,7 +49,7 @@ public class JogadorController {
 	
 	//Deleta jogador
 	@RequestMapping("/deletaJogador")
-	public String deletarJogador(long id) {
+	public String deletaJogador(long id) {
 		Jogador jogador = jr.findById(id);
 		jr.delete(jogador);
 		return "redirect:/jogadores";
@@ -61,7 +61,7 @@ public class JogadorController {
 	public ModelAndView editarJogador(long id) {
 		Jogador jogador = jr.findById(id);
 		ModelAndView mv = new ModelAndView("jogador/update_jogador");
-		mv.addObject("jogadores", jogador);
+		mv.addObject("jogador", jogador);
 		return mv;
 	}
 	
@@ -72,8 +72,10 @@ public class JogadorController {
 		jr.save(jogador);
 		attributes.addFlashAttribute("success", "Jogador alterada com sucesso!");
 
-		long idLong = jogador.getId();
-		String id = "" + idLong;
-		return "redirect:/" + id;
+	long idLong = jogador.getId();
+	String id = "" + idLong;
+	return "redirect:/" + id;
 	}
+	
+	
 }

@@ -1,6 +1,10 @@
 package com.FutebolSpring.FutebolSpring.models;
 
 
+
+
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,8 +13,10 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-public class Jogador {
-
+public class Jogador implements Serializable  {
+	
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -20,10 +26,10 @@ public class Jogador {
 	
 	
 	@NotEmpty
-	private long gols;
+	private String gols;
 	
 	@NotEmpty
-	private long assistencias;
+	private String assistencias;
 
 	public String getNome() {
 		return nome;
@@ -33,25 +39,27 @@ public class Jogador {
 		this.nome = nome;
 	}
 
-	public long getGols() {
+	public String getGols() {
 		return gols;
 	}
 
-	public void setGols(long gols) {
+	public void setGols(String gols) {
 		this.gols = gols;
 	}
 
-	public long getAssistencias() {
+	public String getAssistencias() {
 		return assistencias;
 	}
 
-	public void setAssistencias(long assistencias) {
+	public void setAssistencias(String assistencias) {
 		this.assistencias = assistencias;
 	}
 
 	public long getId() {
 		return id;
 	}
+
+	
 
 	
 }

@@ -1,0 +1,63 @@
+body{
+    background-color: rgb(41, 41, 79) ;
+    background-image: linear-gradient(rgb(0, 0, 0), rgb(29, 28, 131));
+    height:100vh;
+    font-weight: bold;
+   
+
+}
+#btn{
+    height:40vh;
+    border-radius:20px ;
+    
+}
+
+
+#menu{
+   text-align: center;
+   
+   width:100%;
+   height:90%;
+   
+   
+}
+h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 3.5em;
+color: rgb(255, 255, 255);
+text-align: center;
+text-transform: uppercase;
+text-shadow: 3px 2px 0px rgb(40, 191, 21)
+}
+
+
+#cadastro{
+    
+    width: 100%
+}
+
+#form{
+    width: 70%;
+    background-color:whitesmoke;
+    border-radius: 10%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#form button{
+    border-radius: 15%;
+}
+
+footer{
+    position: fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    text-align: center;
+    background-color: aqua;
+    text-transform: uppercase;
+    font-weight: bold;
+    }
