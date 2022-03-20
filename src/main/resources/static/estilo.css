@@ -1,8 +1,13 @@
+#txtcolor{
+color: rgb(255, 255, 255)
+}    
+ 
 body{
     background-color: rgb(41, 41, 79) ;
     background-image: linear-gradient(rgb(0, 0, 0), rgb(29, 28, 131));
     height:100vh;
     font-weight: bold;
+    
    
 
 }
@@ -17,7 +22,7 @@ body{
    text-align: center;
    
    width:100%;
-   height:90%;
+   height:100%;
    
    
 }
@@ -61,3 +66,4 @@ footer{
     text-transform: uppercase;
     font-weight: bold;
     }
+    
