@@ -2,7 +2,6 @@
 <html lang=”pt-br” xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,8 +10,6 @@
     <link rel="stylesheet" href="estilo.css" type="text/css">
     <title>FUTEBOL SPRING</title>
 </head>
-
-
 <body>
 
     <a href="/"> <h1>Futebol SPRING</h1> </a>
@@ -28,11 +25,13 @@
         <tbody>
           <tr th:each="jogador: ${jogadores}">
             <th scope="row"><span th:text="${jogador.id}"></span></th>
-            <td><span class="text-center"  th:text="${jogador.nome}"></span></td>
+            <td> <a th:href= "${(#mvc.url('JC#detalhesjogador').arg(0, jogador.id)).build()}"> <span class="text-center" th:text="${jogador.nome}"></span></a></td>
             <td><span class="text-center" th:text="${jogador.gols}"></span></td>
             <td><span class="text-center" th:text="${jogador.assistencias}"></span></td>
+            <td>
+            	<a th:href= "${(#mvc.url('JC#editarJogador').arg(0, jogador.id)).build()}"><button type="button" class="btn btn-primary" >Editar</button></a>
+            </td>
             <td> 
-            	<a href="/atualizaJogador" ><button type="button" class="btn btn-primary" >Editar</button></a>
            		<a th:href= "${(#mvc.url('JC#deletaJogador').arg(0, jogador.id)).build()}"><button type="button" class="btn btn-danger" >Excluir</button></a>
             </td>
             

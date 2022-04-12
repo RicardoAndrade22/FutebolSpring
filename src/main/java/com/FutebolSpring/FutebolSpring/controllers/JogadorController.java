@@ -1,5 +1,7 @@
 package com.FutebolSpring.FutebolSpring.controllers;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -20,7 +23,7 @@ public class JogadorController {
 	private JogadorRepository jr;
 	
 	//CADASTRAR JOGADOR	
-	@RequestMapping(value = "/cadastrojogador", method = RequestMethod.GET)
+	@RequestMapping("/cadastrojogador")
 	public String form() {
 		return "jogador/cadastro";
 	}
@@ -55,30 +58,38 @@ public class JogadorController {
 		return "redirect:/jogadores";
 	}
 	
+	//Detalhes jogador
+	@RequestMapping("/jogador/{id}")
+	public ModelAndView detalhesjogador(@PathVariable("id") long id) {
+		Jogador jogadores = jr.findById(id);
+		ModelAndView mv = new ModelAndView("jogador/detalhes-jogador");
+		mv.addObject("jogadores", jogadores);
+		
+		return mv;
+
+	}
+	
+	
 	// Métodos que atualizam jogador
 	// formulário edição de jogador
-	@RequestMapping(value = "/atualizaJogador", method = RequestMethod.GET)
-	public ModelAndView editarJogador(long id) {
-		Jogador jogador = jr.findById(id);
+	@RequestMapping(value = "/editar-Jogador", method = RequestMethod.GET)
+	public ModelAndView editarJogador(long codigo) {
+		Jogador jogador = jr.findById(codigo);
 		ModelAndView mv = new ModelAndView("jogador/update_jogador");
 		mv.addObject("jogador", jogador);
 		return mv;
 	}
 	
-	//Update-vaga
-	
-	@RequestMapping(value = "/atualizaJogador", method = RequestMethod.POST)
-	public String updateJogador(@Valid Jogador jogador, BindingResult result, RedirectAttributes attributes) {
-		jr.save(jogador);
-		attributes.addFlashAttribute("success", "Jogador alterada com sucesso!");
+		
+	// POST do FORM que atualiza a vaga
+		@RequestMapping(value = "/editar-Jogador", method = RequestMethod.POST)
+		public String updateJogador(@Valid Jogador jogador, BindingResult result, RedirectAttributes attributes) {
+			jr.save(jogador);
+			attributes.addFlashAttribute("success", "Jogador alterado com sucesso!");
 
-	long idLong = jogador.getId();
-	String id = "" + idLong;
-	return "redirect:/" + id;
-	}
+			long idLong = jogador.getId();
+			String id = "" + idLong;
+			return "redirect:/jogador/" + id;
 	
-		
-	
-	
-		
+		}
 }

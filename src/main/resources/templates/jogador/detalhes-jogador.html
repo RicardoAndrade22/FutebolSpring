@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang=”pt-br” xmlns:th="http://thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css" type="text/css">
+    <title>FUTEBOL SPRING</title>
+</head>
+<body>
+
+    <a href="/"> <h1>Futebol SPRING</h1> </a>
+    <fieldset id="atualizajogador"> 
+        |ATUALIZA JOGADORES|
+        <div>
+        	<h1 >Informacao  </h1>
+        	<div th:each="jogador : ${jogadores}">
+        		<br>
+        		<p>  
+        			<b>Nome:</b> <span th:text="${jogador.nome}"></span>
+        		</p>
+        	
+        		<p>  
+        			<b>Gols:</b> <span th:text="${jogador.gols}"></span>
+        		</p>
+        		
+        		<p>  
+        			<b>Assistencias:</b> <span th:text="${jogador.assistencias}"></span>
+        		</p>
+        	
+        	</div>
+        
+        
+        
+        
+        
+        
+        </div>
+        
+    </fieldset>
+    <footer>
+        Ricardo Andrade - Dev. WEB FULL STACK ||	
+        <small>&copy;copyright 2022</small> 
+    </footer>
+     <!--JavaScript bootstrap-->
+	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+			crossorigin="anonymous">
+		</script>
+</body>
+
+</html>

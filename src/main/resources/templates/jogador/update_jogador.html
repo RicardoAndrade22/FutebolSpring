@@ -1,35 +1,37 @@
 <!DOCTYPE html>
-<html lang=”pt-br” xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang=”pt-br” xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="estilo.css" type="text/css">
     <title>FUTEBOL SPRING</title>
 </head>
 <body>
 
     <a href="/"> <h1>Futebol SPRING</h1> </a>
-    <fieldset id="atualizajogador"> 
+    <fieldset > 
         |ATUALIZA JOGADORES|
         <form id="form" method="post" >
         	<div class="form-group">
-                <label for="exampleInputEmail1">  NOME:</label>
-                <input type="text" class="form-control"   placeholder="..."  name="nome" 
-                th:attr="value = ${jogador.nome}" required>
+                <label for="">  NOME:</label>
+                <input type="text" class="form-control" value=""   placeholder="..."  name="nome" 
+                required th:attr="value = ${jogador.nome}" >
             </div>
             
             <div class="form-group">
-                <label for="exampleInputEmail1">GOLS:</label>
-                <input type="text" class="form-control"  size="2" maxlength="4" pattern="[0-9]+" placeholder="..." name= "gols" 
-               		th:attr="value = ${jogador.gols}"required>
+                <label for="">GOLS:</label>
+                <input type="text" class="form-control" value="" size="2" maxlength="4" pattern="[0-9]+" placeholder="..." name= "gols" 
+               		required th:attr="value = ${jogador.gols}" >
             </div>
             
             <div class="form-group">
-                <label for="exampleInputEmail1">ASSISTENCIAS:</label>
-                <input type="text" class="form-control"  size="2" maxlength="4" pattern="[0-9]+" placeholder="..." name= "assistencias" 
-                	th:attr="value = ${jogador.assistencias}" required>
+                <label for="">ASSISTENCIAS:</label>
+                <input type="text" class="form-control" value="" size="2" maxlength="4" pattern="[0-9]+" placeholder="..." name= "assistencias" 
+                	 required th:attr="value = ${jogador.assistencias}" >
             
             </div>
             <button type="submit" class="btn btn-success">SALVAR</button>
