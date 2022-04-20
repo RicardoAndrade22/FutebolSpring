@@ -43,10 +43,17 @@ public class JogadorController {
 	//LISTAR JOGADOR
 	@RequestMapping("/jogadores")
 	public  ModelAndView listaJogadores() {
+		//ModelAndView usado para chamar o arquivo html
 		ModelAndView mv = new ModelAndView("jogador/listaJogadores");
+		
 		//ITERABLE VAI RETORNAR ELEMENTOS DA CLASSE JOGADOR PARA SEREM USADOS EM LOOP
 		Iterable<Jogador> jogadores = jr.findAll();
+		
+		//exxemplo sintaxe
+		//mv.addAllObjects("Nome_para_ser_usado na view", local)
+		// pode ter mais de 1 ADDOBJECT na rota
 		mv.addObject("jogadores", jogadores);
+		
 		return mv;
 	}
 	
@@ -59,9 +66,11 @@ public class JogadorController {
 	}
 	
 	//Detalhes jogador
-	@RequestMapping("/jogador/{id}")
+	@RequestMapping("/detalhes-jogador/{id}")
 	public ModelAndView detalhesjogador(@PathVariable("id") long id) {
 		Jogador jogadores = jr.findById(id);
+		
+		//ModelAndView usado para chamar o arquivo html
 		ModelAndView mv = new ModelAndView("jogador/detalhes-jogador");
 		mv.addObject("jogadores", jogadores);
 		
@@ -73,15 +82,16 @@ public class JogadorController {
 	// Métodos que atualizam jogador
 	// formulário edição de jogador
 	@RequestMapping(value = "/editar-Jogador", method = RequestMethod.GET)
-	public ModelAndView editarJogador(long codigo) {
-		Jogador jogador = jr.findById(codigo);
+	public ModelAndView editarJogador(long id) {
+		Jogador jogador = jr.findById(id);
+		//ModelAndView usado para chamar o arquivo html
 		ModelAndView mv = new ModelAndView("jogador/update_jogador");
 		mv.addObject("jogador", jogador);
 		return mv;
 	}
 	
 		
-	// POST do FORM que atualiza a vaga
+	// POST do FORM que atualiza a jogador
 		@RequestMapping(value = "/editar-Jogador", method = RequestMethod.POST)
 		public String updateJogador(@Valid Jogador jogador, BindingResult result, RedirectAttributes attributes) {
 			jr.save(jogador);
@@ -89,7 +99,7 @@ public class JogadorController {
 
 			long idLong = jogador.getId();
 			String id = "" + idLong;
-			return "redirect:/jogador/" + id;
+			return "redirect:/detalhes-jogador/" + id;
 	
 		}
 }

@@ -15,12 +15,16 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 public class Jogador implements Serializable  {
 	
+	
+	//o tipo de coluna e chave primaria   e vai ser de 1 em 1
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	
+
 	@NotEmpty
 	private String nome;
 	
@@ -59,7 +63,9 @@ public class Jogador implements Serializable  {
 		return id;
 	}
 
-	
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	
 }

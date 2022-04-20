@@ -1,4 +1,4 @@
-/* 
+
   package com.FutebolSpring.FutebolSpring;
  
 
@@ -33,8 +33,6 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 			.and().csrf().disable();
 			
 		}
-
 		
 }
 
-*/
